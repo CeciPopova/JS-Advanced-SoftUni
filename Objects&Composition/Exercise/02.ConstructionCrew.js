@@ -1,6 +1,6 @@
-function solve(object) {
+function solve(worker) {
 
-    let worker = object;
+    //let worker = object;
 
     if (worker.dizziness === true) {
         let waterReqired = 0.1 * worker.weight * worker.experience;
