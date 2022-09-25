@@ -1,10 +1,8 @@
 function solve(worker) {
 
-    //let worker = object;
-
     if (worker.dizziness === true) {
-        let waterReqired = 0.1 * worker.weight * worker.experience;
-        worker.levelOfHydrated += waterReqired;
+        let reqiredAmount = 0.1 * worker.weight * worker.experience;
+        worker.levelOfHydrated += reqiredAmount;
         worker.dizziness = false;
     }
 
