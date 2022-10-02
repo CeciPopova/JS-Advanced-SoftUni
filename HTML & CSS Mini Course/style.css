@@ -1,0 +1,21 @@
+body {
+    margin: 0;
+    font-family: sans-serif;
+}
+
+nav {
+    background-color: blue;
+    padding: 15px;
+    margin: 0 auto;
+
+}
+
+nav li {
+    padding: 2 20px;
+    display: inline-block;
+}
+
+nav li a {
+    color: white;
+    text-decoration: none;
+}
