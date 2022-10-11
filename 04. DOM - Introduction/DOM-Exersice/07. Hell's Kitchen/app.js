@@ -19,7 +19,6 @@ function solve() {
             let [name,salary] = worker.split(' ');
             if (!output.hasOwnProperty(restorantName)) {
                output[restorantName] = {};
-
             } 
             if (output.hasOwnProperty(restorantName)) {
                output[restorantName][name] = Number(salary);
@@ -45,8 +44,8 @@ function solve() {
       let result = Object.entries(output[bestName]).sort((a, b) => b[1] - a[1]);
       let print = '';
 
-      result.forEach(w => print += `Name: ${w[0]} With Salary: ${w[1]}`);
-      document.querySelector('#bestRestorant p').textContent = `Name: ${bestName} Average Salary: ${currAvrSalary.toFixed(2)} Best Salary: ${(result[0][1]).toFixed(2)}`;
+      result.forEach(w => print += `Name: ${w[0]} With Salary: ${w[1]} `);
+      document.querySelector('#bestRestaurant p').textContent = `Name: ${bestName} Average Salary: ${currAvrSalary.toFixed(2)} Best Salary: ${(result[0][1]).toFixed(2)}`;
       document.querySelector('#workers p').textContent = print;
 
    }
