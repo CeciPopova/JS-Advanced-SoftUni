@@ -6,5 +6,6 @@ function addItem() {
     liElement.textContent = inputElement.value;
     
     itemsElement.appendChild(liElement);
-    
+    inputElement.value = '';
+   
 }
