@@ -8,4 +8,5 @@ function attachGradientEvents() {
     resultElement.textContent = `${percent}%`;
    }
    gradientElement.addEventListener('mousemove', gradientMouseoverHandler);
+ 
 }
