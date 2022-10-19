@@ -1,0 +1,16 @@
+{
+  "dependencies": {
+    "chai": "^4.3.6",
+    "mocha": "^10.1.0"
+  },
+  "name": "lab",
+  "version": "1.0.0",
+  "main": "01.SubSum.customtest.js",
+  "scripts": {
+    "test": "mocha ./*.test.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
