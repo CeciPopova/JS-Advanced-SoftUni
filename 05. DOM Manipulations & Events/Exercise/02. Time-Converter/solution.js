@@ -28,17 +28,14 @@ function attachEventsListeners() {
             seconds: days*rations.seconds
         }
      }
-
+   
      function onConvert(event) {
         let input = event.target.parentElement.querySelector('input[type="text"]');
-        console.log(input);
-        debugger;
-
+       
         let time = convert(Number(input.value), input.id)
        days.value = time.days;
        hours.value = time.hours;
        minutes.value = time.minutes;
        seconds.value = time.seconds;
      }
-
 }

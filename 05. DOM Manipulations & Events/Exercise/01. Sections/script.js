@@ -1,21 +1,24 @@
-function create(input) {
+function create(array) {
+   
     let parentElement = document.getElementById('content');
-    let elements = input;
 
-    for (let i = 0; i < elements.length; i++) {
-        let div = document.createElement('div');
-        let p = document.createElement('p');
-        let text = document.createTextNode(elements[i]);
+    for (let i = 0; i < array.length; i++) {
+       
+        let divElement = document.createElement('div');
+        let pElement = document.createElement('p');
+        let hiddenText = array[i];
+        pElement.textContent = hiddenText;
+
+        //let text = document.createTextNode(array[i]);
+        //pElement.appendChild(text);
         
-
-        p.appendChild(text);
-        p.style.display = 'none';
-        div.appendChild(p);
-        div.addEventListener('click', showParagraphs);
-        parentElement.appendChild(div);
+        pElement.style.display = 'none';
+        divElement.appendChild(pElement);
+        parentElement.appendChild(divElement);
+        divElement.addEventListener('click', showText);
     }
-    function showParagraphs(event) {
-        event.target.children[0].style.display = 'block';
+    function showText(e) {
+        e.target.firstChild.style.display = 'block';
     }
 
 }
