@@ -6,8 +6,6 @@ function solve(n,k){
       let startIndex = i - k ;
       if (startIndex < 0) {
         startIndex = 0;
-      }else{
-        startIndex = i - k;
       }
       arr.push(arr.slice(startIndex).reduce((acc, num)=> acc + num));
 
