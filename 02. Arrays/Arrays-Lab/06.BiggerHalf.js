@@ -1,8 +1,8 @@
 function solve(input) {
-    let length = input.length/2;
-    let start = Number.isInteger(length)? length: length-0.5;
-
-    let result = input.sort((a, b)=> a - b).slice(start);
+    let result = [];
+    let size = input.length/2;
+   
+    result = input.sort((a, b) => a - b).slice(size);
     return result;
 }
 console.log(solve([4, 7, 2, 5]));

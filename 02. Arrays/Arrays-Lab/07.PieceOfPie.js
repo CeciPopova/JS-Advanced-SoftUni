@@ -2,7 +2,7 @@ function solve(arr, flavour1, flavour2){
     let start = arr.indexOf(flavour1);
     let end = arr.indexOf(flavour2);
 
-    let result = arr.slice(start,end+1);
+    let result = arr.slice(start,end + 1);
     return result;
 
 }
