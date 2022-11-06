@@ -1,10 +1,7 @@
 function solve(input) {
     let result = {};
-    for (let i = 0; i < input.length - 1; i+=2) {
-       
-        let key = input[i];
-        let value = input[i+1];
-        result[key] = Number(value);
+    for (let i = 0; i < input.length - 1; i += 2) {
+        result[input[i]] = Number(input[i + 1]);
     }
     console.log(result);
 }
