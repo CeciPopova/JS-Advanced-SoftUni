@@ -1,13 +1,11 @@
-function solve(arr) {
-    let obj = {};
-    for (let index = 0; index < arr.length; index+=2) {
-       let nameOfFood = arr[index];
-       let cal = Number(arr[index + 1]);
-
-       obj[nameOfFood] = cal;
-
+function solve(input) {
+    let result = {};
+    for (let i = 0; i < input.length - 1; i+=2) {
+       
+        let key = input[i];
+        let value = input[i+1];
+        result[key] = Number(value);
     }
-    return obj;
+    console.log(result);
 }
-console.log(solve(['Yoghurt', '48', 'Rise', '138', 'Apple', '52']));
-console.log(solve(['Potato', '93', 'Skyr', '63', 'Cucumber', '18', 'Milk', '42']));
+solve(['Yoghurt', '48', 'Rise', '138', 'Apple', '52']);
