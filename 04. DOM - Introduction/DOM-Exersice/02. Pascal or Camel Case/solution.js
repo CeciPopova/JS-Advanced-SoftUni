@@ -1,47 +1,33 @@
 function solve() {
-  let textElement = document.getElementById('text').value;
+  let resultElement = document.getElementById('result');
+  let inputBtn = document.getElementById('text').value.toLowerCase();
   let convention = document.getElementById('naming-convention').value;
-  let result ='';
-
- if (convention === 'Camel Case') {
-    let text = textElement.toLowerCase();
- 
-    for (let index = 0; index < text.length; index++) {
-      if(text[index]=== ' '){
-    
-        result += text[index + 1].toUpperCase();
-        index++;
-      }else{
-        result += text[index];
+  let result = '';
+  if (convention === 'Camel Case') {
+    for (let i = 0; i < inputBtn.length; i++) {
+      if (inputBtn[i] === ' ') {
+        result += inputBtn[i + 1].toUpperCase();
+        i++;
+      } else {
+        result += inputBtn[i];
       }
     }
-  }else if(convention === 'Pascal Case'){
-    let text = textElement.toLowerCase();
-   
-    for (let index = 0; index < text.length; index++) {
-      
-      if(text[index]=== ' '){
-    
-        result += text[index + 1].toUpperCase();
-        index++;
-      }else{
-        if (index === 0) {
-         
-          result += text[index].toUpperCase();
-        }else{
-          result += text[index];
+  } else if (convention === 'Pascal Case') {
+    for (let i = 0; i < inputBtn.length; i++) {
+      if (inputBtn[i] === ' ') {
+        result += inputBtn[i + 1].toUpperCase();
+        i++;
+      } else {
+        if (i === 0) {
+          result += inputBtn[0].toUpperCase();
+        } else {
+          result += inputBtn[i];
         }
-       
       }
     }
-
-  }else{
-    result = 'Error!';
+  } else {
+    result = 'Error!'
   }
-
-
- let resultElement = document.getElementById('result');
- resultElement.textContent = result;
- return resultElement;
-
+  resultElement.textContent = result;
+  return resultElement;
 }
