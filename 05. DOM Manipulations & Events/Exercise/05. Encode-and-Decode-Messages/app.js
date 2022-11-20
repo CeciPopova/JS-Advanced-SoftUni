@@ -1,35 +1,28 @@
 function encodeAndDecodeMessages() {
-    let messageElement = document.querySelector('textarea');
-    let encodeButtonElement = document.querySelector('button');
+    let message = document.querySelector('textarea');
+    let recievedMessage = document.querySelectorAll('textarea')[1];
 
-    let receivedMessageElement = document.querySelectorAll('textarea')[1];
-    let decodeButtonElement = document.querySelectorAll('button')[1];
+    let sendBtn = document.querySelector('button');
+    let readBtn = document.querySelectorAll('button')[1];
 
-    let onEncode = function () {
-        let givenMessage = messageElement.value;
+    function encode() {
         let encodedMessage = '';
-        
-        for (let i = 0; i < givenMessage.length; i++) {
-            let encodedLetter = String.fromCharCode(givenMessage.charCodeAt(i) + 1);
+        for (let i = 0; i < message.value.length; i++) {
+            let encodedLetter = String.fromCharCode(message.value.charCodeAt(i) + 1);
             encodedMessage += encodedLetter;
         }
-
-        messageElement.value = '';
-        receivedMessageElement.value = encodedMessage;
+        message.value = '';
+        recievedMessage.value = encodedMessage;
     }
 
-    let onDecode = function () {
-        let receivedMessage = receivedMessageElement.value;
-        let decodedMessage = '';
-
-        for (let i = 0; i < receivedMessage.length; i++) {
-            let decodedLetter = String.fromCharCode(receivedMessage.charCodeAt(i) - 1);
-            decodedMessage += decodedLetter;
+    function decode() {
+        let decodeMessage = '';
+        for (let i = 0; i < recievedMessage.value.length; i++) {
+            let decodedLetter = String.fromCharCode(recievedMessage.value.charCodeAt(i) - 1);
+            decodeMessage += decodedLetter;
         }
-
-        receivedMessageElement.value = decodedMessage;
+        recievedMessage.value = decodeMessage;
     }
-
-    encodeButtonElement.addEventListener('click', onEncode);
-    decodeButtonElement.addEventListener('click', onDecode);
+    sendBtn.addEventListener('click', encode);
+    readBtn.addEventListener('click', decode);
 }
