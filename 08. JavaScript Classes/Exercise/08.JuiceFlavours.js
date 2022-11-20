@@ -1,50 +1,44 @@
-function solve(array){
-
-    let map = new Map();
-
+function solve(input) {
+    let result = new Map();
     let bottles = new Map();
+    for (let str of input) {
+        let [juice, quantity] = str.split(' => ');
+        if (!result.has(juice)) {
+            result.set(juice, Number(quantity));
 
-    for(let i = 0; i < array.length; i++){
-
-        let kvp = array[i].split(' => ');
-        
-        let flavor = kvp[0];
-        let quantity = Number(kvp[1]);
-
-        if(!map.has(flavor)){
-             
-            map.set(flavor, quantity);
-             
-            if(map.get(flavor) >= 1000){
-                
-                let numOfBottles = Math.floor(quantity / 1000);
-
-                bottles.set(flavor, numOfBottles);
+            for (let [juice, quantity] of result) {
+                if (quantity >= 1000) {
+                    let bottle = Math.floor(quantity / 1000);
+                    bottles.set(juice, bottle);
+                }
             }
-        }else{
+        } else {
+            let totalQuantity = result.get(juice);
+            totalQuantity += Number(quantity);
+            result.set(juice, totalQuantity);
 
-            let currValue = map.get(flavor);
-            currValue += quantity;
-         
-            map.set(flavor, currValue);
-
-            if(map.get(flavor) >= 1000){
-                
-                let numOfBottles = Math.floor(currValue / 1000);
-
-                bottles.set(flavor, numOfBottles);
+            for (let [juice, quantity] of result) {
+                if (quantity >= 1000) {
+                    let bottle = Math.floor(quantity / 1000);
+                    bottles.set(juice, bottle);
+                }
             }
         }
     }
-
-    for(let [key, value] of bottles){
-
-        console.log(`${key} => ${value}`);
-    }
+   for (let [juice, count] of bottles) {
+    console.log(`${juice} => ${count}`);
+   }
 }
-
 solve(['Orange => 2000',
     'Peach => 1432',
     'Banana => 450',
     'Peach => 600',
-    'Strawberry => 549'])
+    'Strawberry => 549']);
+
+solve(['Kiwi => 234',
+    'Pear => 2345',
+    'Watermelon => 3456',
+    'Kiwi => 4567',
+    'Pear => 5678',
+    'Watermelon => 6789']
+);
