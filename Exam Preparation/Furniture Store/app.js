@@ -31,6 +31,7 @@ function solve() {
         let contentsRowElement = document.createElement('tr');
         let yearContentElement = document.createElement('td');
         let descriptionContentElement = document.createElement('td');
+        let totalPriceElement = document.querySelector('.total-price');
 
 
         modelCellEllement.textContent = model;
@@ -38,15 +39,28 @@ function solve() {
 
         infoButtonElement.textContent = 'More Info';
         infoButtonElement.classList.add('moreBtn');
-        buyButtonElement.textContent= 'Buy it';
-        buyButtonElement.classList.add('buyBtn');
+       
         infoButtonElement.addEventListener('click', (e) => {
             if(e.currentTarget.textContent == 'More Info'){
+                contentsRowElement.style.display = 'contents'
                 e.currentTarget.textContent = 'Less Info'
             }else{
+                contentsRowElement.style.display = 'none'
                 e.currentTarget.textContent = 'More Info';
             }
         });
+
+        buyButtonElement.textContent= 'Buy it';
+        buyButtonElement.classList.add('buyBtn');
+        buyButtonElement.addEventListener('click', (e) => {
+
+            let currTotalPrice = Number(totalPriceElement.textContent);
+            let totalPrice = currTotalPrice + price;
+            totalPriceElement.textContent = totalPrice.toFixed(2);
+            
+            rowElement.remove();
+            contentsRowElement.remove();
+        })
 
         actionCellElement.appendChild(infoButtonElement);
         actionCellElement.appendChild(buyButtonElement);
@@ -61,10 +75,13 @@ function solve() {
         descriptionContentElement.textContent = `Description: ${describtion}`;
 
         contentsRowElement.classList.add('hide');
-        contentsRowElement.style.display = 'contents';
+        contentsRowElement.style.display = 'none';
+
+        contentsRowElement.appendChild(yearContentElement);
+        contentsRowElement.appendChild(descriptionContentElement);
 
         furnitureListElement.appendChild(rowElement);
+        furnitureListElement.appendChild(contentsRowElement);
     });
-
 
 }
