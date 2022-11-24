@@ -4,18 +4,18 @@ function solve() {
     const addButtonElement = document.getElementById('add');
     const modelInputElement = document.getElementById('model');
     const yearInputElement = document.getElementById('year');
-    const describtionElement = document.getElementById('description');
+    const descriptionElement = document.getElementById('description');
     const priceInputElement = document.getElementById('price');
     const furnitureListElement = document.getElementById('furniture-list');
 
     addButtonElement.addEventListener('click', (e) => {
         e.preventDefault();
         let model = modelInputElement.value;
-        let describtion =describtionElement.value
+        let description =descriptionElement.value
         let year = Number(yearInputElement.value);
         let price = Number(priceInputElement.value);
 
-        if (!model || !describtion) {
+        if (!model || !description) {
             return;
         }
         if (year <= 0 || price <= 0) {
@@ -72,7 +72,7 @@ function solve() {
         rowElement.appendChild(actionCellElement);
         yearContentElement.textContent = `Year: ${year}`;
         descriptionContentElement.setAttribute('colspan', 3);
-        descriptionContentElement.textContent = `Description: ${describtion}`;
+        descriptionContentElement.textContent = `Description: ${description}`;
 
         contentsRowElement.classList.add('hide');
         contentsRowElement.style.display = 'none';
