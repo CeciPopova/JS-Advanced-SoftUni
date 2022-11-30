@@ -10,6 +10,8 @@ function solve() {
     let inputClientPhoneElement = document.getElementById('client-phone');
     let sectionReceivedOrdersElement = document.getElementById('received-orders');
     let finishSection = document.getElementById('completed-orders');
+    let clearBtn = finishSection.querySelector('button');
+    clearBtn.addEventListener('click', clearTask);
 
     function sendForm(e) {
         e.preventDefault();
@@ -49,7 +51,7 @@ function solve() {
 
         finishBtn.setAttribute('disabled', true);
         finishBtn.textContent = 'Finish repair';
-        
+
         finishBtn.addEventListener('click', finishRepair);
 
 
@@ -75,6 +77,15 @@ function solve() {
     function finishRepair(e) {
         let divContainer = e.target.parentElement;
         finishSection.appendChild(divContainer);
+        let buttons = divContainer.querySelectorAll('button');
+        buttons[0].remove();
+        buttons[1].remove();
+    }
+
+    function clearTask(e) {
+        let containers = finishSection.querySelectorAll('.container');
+
+        Array.from(containers).forEach(c => c.remove());
     }
 
 }
