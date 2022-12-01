@@ -18,12 +18,13 @@ class VegetableStore {
                 price
             }
             let product = this.availableProducts.find(p => p.type === type);
+            let index = this.availableProducts.indexOf(product);
             if (!product) {
                 this.availableProducts.push(this.vegetable);
             } else {
-                this.availableProducts.quantity += quantity;
-                if (this.availableProducts.price < price) {
-                    this.availableProducts.price = price;
+                this.availableProducts[index].quantity += quantity;
+                if (this.availableProducts[index].price < price) {
+                    this.availableProducts[index].price = price;
                 }
             }
         }
@@ -70,10 +71,12 @@ class VegetableStore {
 
     revision (){
         let result = '';
-        result += "Available vegetables:";
+        result += "Available vegetables:\n";
         let sortedProducts = this.availableProducts.sort((a, b) => a.price - b.price);
-        sortedProducts.forEach(p => result += `${type}-${quantity}-$${price.toFixed(2)}\n`);
-        result += `The owner of the store is ${this.owner}, and the location is ${this.location}.`
+        sortedProducts.forEach(p => result += `${p.type}-${p.quantity}-$${p.price.toFixed(1)}\n`);
+        result += `The owner of the store is ${this.owner}, and the location is ${this.location}.`;
+        return result;
+
     }
 }
 let vegStore = new VegetableStore("Jerrie Munro", "1463 Pette Kyosheta, Sofia");
