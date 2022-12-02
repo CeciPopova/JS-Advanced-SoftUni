@@ -1,7 +1,7 @@
 const companyAdministration = require('../companyAdministration');
 const { assert } = require('chai');
 
-describe("Tests …", function() {
+describe("Tests companyAdministration", function() {
     describe("Tests for hiringEmployee", function() {
 
         it("If position value is invalid ", function() {
@@ -20,6 +20,7 @@ describe("Tests …", function() {
             assert.equal(actual, expectedMesssage);
         });
      });
+
      describe('Tests for calculateSalary', () => {
 
         it('invalid input', () => {
@@ -65,6 +66,4 @@ describe("Tests …", function() {
         });
 
      });
-
-    
 });
