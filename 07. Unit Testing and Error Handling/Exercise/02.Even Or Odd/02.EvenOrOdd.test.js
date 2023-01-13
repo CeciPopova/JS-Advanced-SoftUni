@@ -1,6 +1,6 @@
 const { assert } = require('chai');
 const isOddOrEven = require('./02.EvenOrOdd');
-const sumOfTwoNumbers = require('./02.EvenOrOdd');
+const sumOfTwoNumbers = reqconuire('./02.EvenOrOdd');
 
 describe('isOddOrEven function test', () => {
     //invalid input tests
